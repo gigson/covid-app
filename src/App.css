@@ -1,0 +1,29 @@
+table {
+    border-collapse: separate;
+    border-spacing: 1em 1em;
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+body{
+    margin: 0 auto;
+    text-align: center;
+}
+
+input{
+    width: 5em;
+}
+
+button{
+    margin: 5px;
+}
+
+.clickable{
+    color: royalblue;
+    cursor: pointer;
+}
+
+.clickable:hover{
+    font-weight:bold;
+}
