@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import CountryItem from "./CountryItem";
 import StateItem from "./StateItem";
 
 function States({limit}) {
@@ -12,12 +11,11 @@ function States({limit}) {
             .then((response) => {
                 setStates(response.data.slice(0, limit));
             })
-            .catch((err) => console.error('[Countries.jsx]', err.message));
+            .catch((err) => console.error('[States.jsx]', err.message));
     }, [limit]);
 
-    let content = <h2>List</h2>;
 
-    content = states.map((item) => {
+    let content = states.map((item) => {
         return (
             <StateItem
                 item={item}

@@ -3,10 +3,9 @@ import axios from 'axios';
 import CountryItem from "./CountryItem";
 import FullCountryItem from "./FullCountryItem";
 
-function Countries({limit, a}) {
+function Countries({limit}) {
     const [countries, setCountries] = useState([]);
-    const [selectedItemId, setSelectedItemId] = useState(null);
-
+    const [selectedCountry, setSelectedCountry] = useState(null);
 
     useEffect(() => {
         axios
@@ -17,10 +16,17 @@ function Countries({limit, a}) {
             .catch((err) => console.error('[Countries.jsx]', err.message));
     }, [limit]);
 
-
     const handleItemClick = (itemId) => {
-        setSelectedItemId(itemId);
+        setSelectedCountry(itemId);
     };
+
+    if (selectedCountry) {
+        return (
+            <div>
+                <FullCountryItem selectedCountry={selectedCountry}/>
+            </div>
+        );
+    }
 
     let content = countries.map((item) => {
         return (
@@ -33,20 +39,12 @@ function Countries({limit, a}) {
         );
     });
 
-    if (selectedItemId){
-        return (
-            <div>
-                <FullCountryItem selectedItemId={selectedItemId} />
-            </div>
-        );
-    }
-
     return (
         <div>
 
             <h1>By Country: </h1>
             <table>
-                <tr >
+                <tr>
                     <th>Country:</th>
                     <th>Cases:</th>
                     <th>Active:</th>
@@ -60,7 +58,6 @@ function Countries({limit, a}) {
 
         </div>
     );
-
 
 }
 

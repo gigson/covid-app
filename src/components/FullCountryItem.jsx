@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
-function FullCountryItem({ selectedItemId }) {
+function FullCountryItem({selectedCountry}) {
     const [item, setItem] = useState(null);
 
     useEffect(() => {
         (async () => {
             try {
                 const response = await axios.get(
-                    'https://corona.lmao.ninja/v2/countries/' + selectedItemId
+                    'https://corona.lmao.ninja/v2/countries/' + selectedCountry
                 );
 
                 setItem(response.data);
@@ -16,7 +16,7 @@ function FullCountryItem({ selectedItemId }) {
                 console.error('[FullCountryItem.jsx]', err.message);
             }
         })();
-    }, [selectedItemId]);
+    }, [selectedCountry]);
 
     if (!item) return null;
 

@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import CountryItem from "./CountryItem";
 import ProvinceItem from "./ProvinceItem";
 
-function Hopkins({limit}) {
+function Provinces({limit}) {
     const [provinces, setProvinces] = useState([]);
 
     useEffect(() => {
@@ -15,9 +14,7 @@ function Hopkins({limit}) {
             .catch((err) => console.error('[Countries.jsx]', err.message));
     }, [limit]);
 
-    let content = <h2>List</h2>;
-
-    content = provinces.map((item) => {
+    let content = provinces.map((item) => {
         return (
             <ProvinceItem
                 item={item}
@@ -28,7 +25,7 @@ function Hopkins({limit}) {
     return (
         <div>
 
-            <h1>Hopkins Data: </h1>
+            <h1>Provinces Data: </h1>
             <table>
                 <tr>
                     <th>Country:</th>
@@ -45,4 +42,4 @@ function Hopkins({limit}) {
 }
 
 
-export default Hopkins;
+export default Provinces;

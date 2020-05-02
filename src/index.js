@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import All from "./components/All";
+import Worldwide from "./components/Worldwide";
 import Countries from "./components/Countries";
 import States from "./components/States";
-import Hopkins from "./components/Hopkins";
+import Provinces from "./components/Provinces";
 
 
 ReactDOM.render(

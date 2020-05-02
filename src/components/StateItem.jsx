@@ -1,6 +1,6 @@
 import React from 'react';
 
-function StateItem({ item }) {
+function StateItem({item}) {
     return (
         <tr>
             <td>{item.state}</td>

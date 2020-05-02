@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CountryItem({ item, handleItemClick }) {
+function CountryItem({item, handleItemClick}) {
     return (
         <tr>
             <td onClick={handleItemClick} className="clickable">{item.country}</td>

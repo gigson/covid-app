@@ -2,19 +2,19 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
 
-function All(props) {
-    const [info, setInfo] = useState(null);
+function Worldwide() {
+    const [worldwideData, setWorldwideData] = useState(null);
 
     useEffect(() => {
         axios
             .get('https://corona.lmao.ninja/v2/all')
             .then((response) => {
-                setInfo(response.data);
+                setWorldwideData(response.data);
             })
-            .catch((err) => console.error('[All.jsx]', err.message));
+            .catch((err) => console.error('[Worldwide.jsx]', err.message));
     }, []);
 
-    if (!info) return null;
+    if (!worldwideData) return null;
 
     return (
         <div>
@@ -29,18 +29,16 @@ function All(props) {
                         <th>Death:</th>
                     </tr>
                     <tr>
-                        <td>{info.cases}</td>
-                        <td>{info.active}</td>
-                        <td>{info.recovered}</td>
-                        <td>{info.deaths}</td>
+                        <td>{worldwideData.cases}</td>
+                        <td>{worldwideData.active}</td>
+                        <td>{worldwideData.recovered}</td>
+                        <td>{worldwideData.deaths}</td>
                     </tr>
                 </table>
             </div>
 
         </div>
     );
-
 }
 
-
-export default All;
+export default Worldwide;

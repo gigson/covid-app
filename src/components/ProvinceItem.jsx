@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ProvinceItem({ item }) {
+function ProvinceItem({item}) {
     return (
         <tr>
             <td>{item.country}</td>
